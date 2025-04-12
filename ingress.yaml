@@ -1,0 +1,18 @@
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 5000
+  failureThreshold: 2
+  initialDelaySeconds: 15
+  periodSeconds: 60
+  apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    name: hmd-ingress
+    namespace: hmd-apps
+  spec:
+    defaultBackend:
+      service:
+        name: profile-management-service
+        port:
+          number: 80

@@ -1,0 +1,93 @@
+# Sample Data for users
+
+Name: John Green
+Username: jgreenbean
+Email: johngreen@trincoll.edu
+Subjects: Comp Sci, English
+Hours: 18, 19, 20, 22, 23
+Locations: Cafe, Library
+
+Name: Megan Red
+Username: redmob
+Email: meganred@trincoll.edu
+Subjects: Philosophy, Arts
+Hours: 16, 17, 18, 19
+Locations: Cafe, Park
+
+Name: Bono Orange
+Username: tangsauce
+Email: bonoorange@trincoll.edu
+Subjects: Physics, Comp Sci
+Hours: 17, 18, 20, 22, 23
+Locations: Library, Classroom
+
+Name: Trevor Blue
+Username: blueboy
+Email: trevorblue@trincoll.edu
+Subjects: Math, English
+Hours: 15, 16, 17, 19
+Locations: Library, Classroom
+
+Name: Ashley Black
+Username: ashbaba
+Email: ashleyblack@trincoll.edu
+Subjects: Physics, English
+Hours: 7, 8, 9, 10
+Locations: Park, Classroom
+
+Name: Donovan Purple
+Username: vanopurp
+Email: donavanpurple@trincoll.edu
+Subjects: French, English
+Hours: 10, 11, 12, 13
+Locations: Cafe, Museum
+
+Name: Cameron Gray
+Username: cameray
+Email: camerongray@trincoll.edu
+Subjects: Philosophy, French
+Hours: 12, 13, 14
+Locations: Museum, Library
+
+Name: Aniya Pink
+Username: anayink
+Email: aniyapink@trincoll.edu
+Subjects: Math, Sociology
+Hours: 14, 15, 16, 17
+Locations: Library, Park
+
+Name: Walter White 
+Username: whitty
+Email: walterwhite@trincoll.edu
+Subjects: Economics, Comp Sci
+Hours: 8, 9, 18, 19
+Locations: Park, Cafe
+
+Name: James Brown
+Username: jabruno
+Email: jamesbrown@trincoll.edu
+Subjects: Economics, Philosophy
+Hours: 19, 20, 21, 22
+Locations: Cafe, Classroom
+
+Name: Veronica Yellow
+Username: rollew
+Email: veronicayellow@trincoll.edu
+Subjects: Sociology, Physics
+Hours: 15, 17, 18, 20
+Locations: Library, Cafe
+
+Name: Linda Indigo
+Username: lindogo
+Email: lindaindigo@trincoll.edu
+Subjects: Physics, French
+Hours: 14, 17, 18, 19, 22
+Locations: Classroom, Library
+
+Name: Dimitri Lime
+Username: dimime
+Email: dimitrilime@trincoll.edu
+Subjects: English, Sociology
+Hours: 7, 8, 10, 16, 17
+Locations: Park, Classroom
+

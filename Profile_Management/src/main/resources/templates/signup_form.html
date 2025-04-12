@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container text-center">
+		<div>
+			<h1>User Registration - Sign Up</h1>
+		</div>
+		<form th:action="@{/process_register}" th:object="${user}" 
+			method="post" style="max-width: 600px; margin: 0 auto;">
+		<div class="m-3">
+			<div class="form-group row">
+				<label class="col-4 col-form-label">First Name: </label>
+				<div class="col-8">
+					<input type="text" th:field="*{firstName}" class="form-control" 
+							required minlength="2" maxlength="20"/>
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Last Name: </label>
+				<div class="col-8">
+					<input type="text" th:field="*{lastName}" class="form-control" 
+							required minlength="2" maxlength="20" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">E-mail: </label>
+				<div class="col-8">
+					<input type="email" th:field="*{email}" class="form-control" required />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Password: </label>
+				<div class="col-8">
+					<input type="password" th:field="*{password}" class="form-control"
+						   required minlength="6" maxlength="10"/>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Courses: </label>
+				<div class="col-8">
+					<form id="form2">
+						<select name="courses" id="courses" style="width: 350px" size="8" multiple required>
+							<option value="Mathematics">Mathematics</option>
+							<option value="Science">Science</option>
+							<option value="Literature">Literature</option>
+							<option value="History">History</option>
+							<option value="Languages">Languages</option>
+							<option value="Arts">Arts</option>
+							<option value="Philosophy">Philosophy</option>
+							<option value="Religion">Religion</option>
+						</select>
+					</form>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Availability: </label>
+				<div class="col-8">
+					<div class="row">
+						<div class="col">
+							<label>Monday:</label>
+							<input type="time" name="monday" id="monday" class="form-control" >
+						</div>
+						<div class="col">
+							<label>Tuesday:</label>
+							<input type="time" name="tuesday" id="tuesday" class="form-control" >
+						</div>
+						<div class="col">
+							<label>Wednesday:</label>
+							<input type="time" name="wednesday" id="wednesday" class="form-control" >
+						</div>
+						<div class="col">
+							<label>Thursday:</label>
+							<input type="time" name="thursday" id="thursday" class="form-control" >
+						</div>
+						<div class="col">
+							<label>Friday:</label>
+							<input type="time" name="friday" id="friday" class="form-control" >
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">University: </label>
+				<div class="col-8">
+					<select name="university" th:field="*{university}" class="form-control" required>
+						<option value="">Select a University</option>
+						<option value="Amherst College">Amherst College</option>
+						<option value="Bates College">Bates College</option>
+						<option value="Bowdoin College">Bowdoin College</option>
+						<option value="Colby College">Colby College</option>
+						<option value="Connecticut College">Connecticut College</option>
+						<option value="Hamilton College">Hamilton College</option>
+						<option value="Middlebury College">Middlebury College</option>
+						<option value="Trinity College">Trinity College</option>
+						<option value="Tufts University">Tufts University</option>
+						<option value="Wesleyan University">Wesleyan University</option>
+						<option value="Williams College">Williams College</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-4 col-form-label">Location: </label>
+				<div class="col-8">
+					<input type="text" th:field="*{location}" class="form-control" required />
+				</div>
+			</div>
+
+			<div>
+				<button type="submit" class="btn btn-primary">Sign Up</button> 
+			</div>
+		</div>
+		</form>
+	</div>
+</body>
+</html>

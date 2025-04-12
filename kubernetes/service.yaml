@@ -1,0 +1,83 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: matcher-service
+  namespace: hmd-apps
+spec:
+  selector:
+    app.kubernetes.io/name: matcher
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: messenger-service
+  namespace: hmd-apps
+spec:
+  selector:
+    app.kubernetes.io/name: messenger
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: profile-management-service
+  namespace: hmd-apps
+spec:
+  selector:
+    app.kubernetes.io/name: profile-management
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: h2-db-messenger-service
+  namespace: hmd-apps
+spec:
+  type: ClusterIP
+  selector:
+    app: h2-db-messenger
+  ports:
+    - port: 9092
+      targetPort: 9092
+      name: db-port
+    - port: 8082
+      targetPort: 8082
+      name: http-port
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: h2-db-pm-service
+  namespace: hmd-apps
+spec:
+  type: ClusterIP
+  selector:
+    app: h2-db-pm
+  ports:
+    - port: 9092
+      targetPort: 9092
+      name: db-port
+    - port: 8082
+      targetPort: 8082
+      name: http-port

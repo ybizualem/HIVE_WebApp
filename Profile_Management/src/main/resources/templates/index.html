@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>HiveMind Home</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">HiveMind</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#" th:href="@{/home}" style="color: white;">Home</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/users}" style="color: white;">List of Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/register}" style="color: white;">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/login}" style="color: white;">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container text-center">
+    <h1>Welcome to HiveMind</h1>
+</div>
+
+</body>
+</html>

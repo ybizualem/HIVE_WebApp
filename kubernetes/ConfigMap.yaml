@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: matcher-config
+  namespace: hmd-apps
+data:
+  CHATGPT_MODEL: "gpt-3.5-turbo"
+  CHATGPT-MODEL: "https://api.openai.com/v1/chat/completions"
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hmd-m-config
+  namespace: hmd-apps
+data:
+  SPRING_DATASOURCE_URL: "jdbc:h2:tcp://h2-db-messenger-service:9092/test"
+  SPRING_DATASOURCE_USERNAME: "sa"
+  SPRING_DATASOURCE_PASSWORD: ""
+  SPRING_DATASOURCE_DRIVER_CLASS_NAME: "org.h2.Driver"
+  SPRING_DATASOURCE_NAME: "messengerStorage"
+  SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hmd-pm-config
+  namespace: hmd-apps
+data:
+  SPRING_DATASOURCE_URL: "jdbc:h2:tcp://h2-db-pm-service:9092/test"
+  SPRING_DATASOURCE_USERNAME: "sa"
+  SPRING_DATASOURCE_PASSWORD: ""
+  SPRING_DATASOURCE_DRIVER_CLASS_NAME: "org.h2.Driver"
+  SPRING_DATASOURCE_NAME: "profileStorage"

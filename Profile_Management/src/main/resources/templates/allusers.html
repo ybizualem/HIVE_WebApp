@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>All Users</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>User List</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through each user and display their information -->
+    <tr th:each="user: ${listUsers}">
+        <td th:text="${user.id}">User ID</td>
+        <td th:text="${user.email}">E-mail</td>
+        <td th:text="${user.firstName}">First Name</td>
+        <td th:text="${user.lastName}">Last Name</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

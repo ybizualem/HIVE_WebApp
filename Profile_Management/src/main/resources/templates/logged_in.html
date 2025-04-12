@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>HiveMind Home</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body class="light-theme">
+
+<!-- #HEADER -->
+
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Hive</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/home}" style="color: white;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/users}" style="color: white;">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/chatrooms}" style="color: white;">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/logout}" style="color: white;">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<!-- Main Content -->
+
+<main th:fragment="content">
+
+    <!-- HERO SECTION -->
+
+    <div class="hero">
+
+        <div class="container">
+
+            <div class="left">
+
+                <h1 class="h1">
+                    Welcome to <b>Hive</b>.
+                    <br>
+                </h1>
+
+                <p class="h3">
+                    At Hive, we've got studying in mind and connections on tap, where college students come together to learn and grow!
+                </p>
+
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">Contact Me</a>
+                    <a href="#" class="btn btn-secondary">About Me</a>
+                </div>
+
+            </div>
+
+            <div class="right">
+
+                <div class="pattern-bg"></div>
+                <div class="img-box">
+                    <img th:src="@{/assets/images/logo.png}" alt="Hive" class="hero-img">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matcher-deployment
+  namespace: hmd-apps
+  labels:
+    app: matcher-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: matcher-llm
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: matcher-llm
+    spec:
+      containers:
+        - name: matcher
+          image: kwaagyei/invites:v1.1.0
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: matcher-config
+            - secretRef:
+                name: matcher-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messenger-deployment
+  namespace: hmd-apps
+  labels:
+    app: messenger-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: messenger
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: messenger
+    spec:
+      containers:
+        - name: messenger
+          image: ybizualem/messenger:v1.0.1
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: hmd-m-config
+            - secretRef:
+                name: pusher-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profile-management-deployment
+  namespace: hmd-apps
+  labels:
+    app: profile-management-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: profile-management
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: profile-management
+    spec:
+      containers:
+        - name: profile-management
+          image: nokonkwo/profile-management:v1.1.2
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: hmd-pm-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: h2-db-messenger-deployment
+  namespace: hmd-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: h2-db-messenger
+  template:
+    metadata:
+      labels:
+        app: h2-db-messenger
+    spec:
+      containers:
+        - name: h2
+          image: jesperdj/h2
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 9092
+            - containerPort: 8082
+          env:
+            - name: H2_OPTIONS
+              value: "-tcp -tcpAllowOthers -tcpPort 9092 -web -webAllowOthers -webPort 8082"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: h2-db-pm-deployment
+  namespace: hmd-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: h2-db-pm
+  template:
+    metadata:
+      labels:
+        app: h2-db-pm
+    spec:
+      containers:
+        - name: h2
+          image: jesperdj/h2
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 9092
+            - containerPort: 8082
+          env:
+            - name: H2_OPTIONS
+              value: "-tcp -tcpAllowOthers -tcpPort 9092 -web -webAllowOthers -webPort 8082"

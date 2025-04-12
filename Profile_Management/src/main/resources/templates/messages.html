@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-3">
+    <h1>Messages in Chat Room <span th:text="${chatRoomId}"></span></h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Sender</th>
+            <th>Message</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="message : ${messages}">
+            <td th:text="${message.sender}"></td>
+            <td th:text="${message.content}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <h3>Send a new message</h3>
+    <form th:action="@{/send}" method="post">
+        <input type="hidden" name="chatRoomId" th:value="${chatRoomId}" />
+        <div class="form-group">
+            <label for="content">Message:</label>
+            <input type="text" class="form-control" id="content" name="content" required>
+        </div>
+        <div class="form-group">
+            <label for="receiver">Receiver:</label>
+            <input type="text" class="form-control" id="receiver" name="receiver" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+</div>
+</body>
+</html>
